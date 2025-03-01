@@ -38,7 +38,7 @@ export function timeSince(date) {
   if (interval > 1) {
     return Math.floor(interval) + ' minute ago';
   }
-  return Math.floor(seconds) + ' seconda ago';
+  return Math.floor(seconds) + ' second ago';
 }
 export const isSameSender = (messages, m, i, userId) => {
   return (
