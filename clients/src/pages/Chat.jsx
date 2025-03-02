@@ -104,7 +104,8 @@ function Chat(props) {
     <>
       {activeChat ? (
         <div className={props.className}>
-          <div className='flex justify-between items-center px-5 bg-[#1a1d24] w-[100%] py-3'>
+          {/* Chat Header */}
+          <div className='flex justify-between items-center px-5 bg-[#1a1d24] w-[100%] py-3 border-b border-[#FFD700]'>
             <div className='flex items-center gap-x-[10px]'>
               <div className='flex flex-col items-start justify-center'>
                 <h5 className='text-[17px] text-[#FFD700] font-bold tracking-wide'>
@@ -116,18 +117,23 @@ function Chat(props) {
               <Model />
             </div>
           </div>
+
+          {/* Message History */}
           <div className='scrollbar-hide w-[100%] h-[70vh] md:h-[66vh] lg:h-[69vh] flex flex-col overflow-y-scroll p-4 bg-[#1a1d24]'>
             <MessageHistory typing={isTyping} messages={messages} />
             <div className='ml-7 -mb-10'>
               {isTyping ? <Typing width="100" height="100" /> : ""}
             </div>
           </div>
+
+          {/* Input Area */}
           <div className='absolute left-[31%] bottom-[8%]'>
             {showPicker && (
               <Picker data={data} onEmojiSelect={(e) => setMessage(message + e.native)} />
             )}
-            <div className='border-[1px] border-[#FFD700] px-6 py-3 w-[360px] sm:w-[400px] md:w-[350px] h-[50px] lg:w-[400px] rounded-t-[10px] bg-[#1a1d24]'>
-              <form onKeyDown={(e) => keyDownFunction(e)} onSubmit={(e) => e.preventDefault()}>
+            <div className='border-[1px] border-[#FFD700] px-6 py-3 w-[360px] sm:w-[400px] md:w-[350px] lg:w-[400px] rounded-t-[10px] bg-[#1a1d24] flex items-center gap-x-2'>
+              {/* Input Field */}
+              <form onKeyDown={(e) => keyDownFunction(e)} onSubmit={(e) => e.preventDefault()} className='flex-1'>
                 <input
                   onChange={(e) => {
                     setMessage(e.target.value);
@@ -154,19 +160,21 @@ function Chat(props) {
                   value={message}
                 />
               </form>
+              {/* Emoji Button */}
+              <div className='cursor-pointer' onClick={() => setShowPicker(!showPicker)}>
+                {showPicker ? (
+                  <BsFillEmojiSmileFill className='w-[20px] h-[20px] text-[#FFD700]' />
+                ) : (
+                  <BsEmojiSmile className='w-[20px] h-[20px] text-[#FFD700]' />
+                )}
+              </div>
             </div>
+            {/* Send Button */}
             <div className='border-x-[1px] border-b-[1px] bg-[#1a1d24] border-[#FFD700] px-6 py-3 w-[360px] sm:w-[400px] md:w-[350px] lg:w-[400px] rounded-b-[10px] h-[50px]'>
-              <div className='flex justify-between items-start'>
-                <div className='cursor-pointer' onClick={() => setShowPicker(!showPicker)}>
-                  {showPicker ? (
-                    <BsFillEmojiSmileFill className='w-[20px] h-[20px] text-[#FFD700]' />
-                  ) : (
-                    <BsEmojiSmile className='w-[20px] h-[20px] text-[#FFD700]' />
-                  )}
-                </div>
+              <div className='flex justify-end'>
                 <button
                   onClick={(e) => keyDownFunction(e)}
-                  className='bg-[#FFD700] text-[#1a1d24] text-[14px] px-2 py-[3px] font-medium rounded-[7px] -mt-1 hover:bg-[#e6b800] transition-colors'
+                  className='bg-[#FFD700] text-[#1a1d24] text-[14px] px-2 py-[3px] font-medium rounded-[7px] hover:bg-[#e6b800] transition-colors'
                 >
                   Send
                 </button>
