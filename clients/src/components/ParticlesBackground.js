@@ -1,4 +1,3 @@
-// src/components/ParticlesBackground.js
 import React, { useEffect } from 'react';
 import Particles from 'react-particles-js';
 
@@ -14,7 +13,7 @@ const ParticlesBackground = () => {
           },
         },
         color: {
-          value: "#00c39a",
+          value: "#FFD700",
         },
         shape: {
           type: "circle",
