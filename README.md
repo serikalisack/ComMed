@@ -25,7 +25,7 @@ This is a real-time chat website that allows users to connect with each other an
 - Responsive design: the website is optimized for different screen sizes and devices
 
 ## Configuration and Setup
-In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine.
+In order to run this project locally, simply fork and clone the repository ([text](https://github.com/serikalisack/ComMed.git)) or download as zip and unzip on your machine.
 
 - Open the project in your prefered code editor.
 - Go to terminal -> New terminal (If you are using VS code)
