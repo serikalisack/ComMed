@@ -23,3 +23,25 @@
     min-width: 600px;
   }
 }
+/* Add smooth transitions for hover effects */
+button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Style the input field */
+input {
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #FFD700;
+}
+
+/* Add a subtle shadow to the chat container */
+.chat-container {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
